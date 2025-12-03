@@ -1,0 +1,238 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0f;
+  --foreground: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-poppins);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0a0a0f;
+  color: var(--foreground);
+  font-family: var(--font-poppins), sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Force all card content to be black and visible */
+.glass-card,
+.glass-card *,
+.glass-card p,
+.glass-card span,
+.glass-card div,
+.glass-card h1,
+.glass-card h2,
+.glass-card h3,
+.glass-card h4,
+.glass-card h5,
+.glass-card h6 {
+  color: #000000 !important;
+  text-shadow: none !important;
+  opacity: 1 !important;
+}
+
+/* Animated background gradient */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(79, 172, 254, 0.15) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Grid pattern overlay */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glass-card {
+  background: #ffffff !important;
+  border: 4px solid #9ca3af !important;
+  border-radius: 20px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 300px;
+  position: relative;
+  z-index: 100 !important;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba(255, 255, 255, 1) inset;
+  opacity: 1 !important;
+  padding: 2.5rem !important;
+}
+
+@media (min-width: 640px) {
+  .glass-card {
+    padding: 3rem !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .glass-card {
+    padding: 3.5rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .glass-card {
+    padding: 4rem !important;
+  }
+}
+
+.glass-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(102, 126, 234, 0.8),
+    rgba(118, 75, 162, 0.8),
+    transparent
+  );
+  opacity: 1;
+  z-index: 1;
+}
+
+.glass-card:hover {
+  background: #ffffff !important;
+  border-color: #6b7280 !important;
+  transform: translateY(-6px);
+  z-index: 110 !important;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(255, 255, 255, 1) inset;
+}
+
+.glass-card:hover::before {
+  opacity: 1;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(102, 126, 234, 1),
+    rgba(118, 75, 162, 1),
+    rgba(240, 147, 251, 1),
+    transparent
+  );
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 30%, #f093fb 60%, #4facfe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+  font-weight: 800;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Card accent colors */
+.card-blue {
+  border-left: 4px solid rgb(79, 172, 254) !important;
+}
+
+.card-purple {
+  border-left: 4px solid rgb(102, 126, 234) !important;
+}
+
+.card-pink {
+  border-left: 4px solid rgb(240, 147, 251) !important;
+}
+
+.card-green {
+  border-left: 4px solid rgb(16, 185, 129) !important;
+}
+
+.card-yellow {
+  border-left: 4px solid rgb(251, 191, 36) !important;
+}
+
+.card-orange {
+  border-left: 4px solid rgb(251, 146, 60) !important;
+}
+
+.card-cyan {
+  border-left: 4px solid rgb(34, 211, 238) !important;
+}
+
+.card-indigo {
+  border-left: 4px solid rgb(99, 102, 241) !important;
+}
+
+.glass-card:hover.card-blue {
+  border-left-color: rgb(79, 172, 254) !important;
+  box-shadow: 0 0 20px rgba(79, 172, 254, 0.4);
+}
+
+.glass-card:hover.card-purple {
+  border-left-color: rgb(102, 126, 234) !important;
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+}
+
+.glass-card:hover.card-pink {
+  border-left-color: rgb(240, 147, 251) !important;
+  box-shadow: 0 0 20px rgba(240, 147, 251, 0.4);
+}
+
+.glass-card:hover.card-green {
+  border-left-color: rgb(16, 185, 129) !important;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+}
+
+.glass-card:hover.card-yellow {
+  border-left-color: rgb(251, 191, 36) !important;
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+}
+
+.glass-card:hover.card-orange {
+  border-left-color: rgb(251, 146, 60) !important;
+  box-shadow: 0 0 20px rgba(251, 146, 60, 0.4);
+}
+
+.glass-card:hover.card-cyan {
+  border-left-color: rgb(34, 211, 238) !important;
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+}
+
+.glass-card:hover.card-indigo {
+  border-left-color: rgb(99, 102, 241) !important;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+}
