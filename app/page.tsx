@@ -95,7 +95,7 @@ export default function Home() {
       const platform = navigator.platform || "Unknown";
       const vendor = navigator.vendor || "Unknown";
       const colorDepth = `${
-        screen.colorDepth || window.screen.colorDepth || "Unknown"
+        window.screen.colorDepth || "Unknown"
       } bit`;
       const pixelRatio = window.devicePixelRatio
         ? window.devicePixelRatio.toFixed(2)
@@ -230,7 +230,7 @@ export default function Home() {
       scale: 1,
       transition: {
         duration: 0.5,
-        ease: [0.4, 0, 0.2, 1],
+        ease: [0.4, 0, 0.2, 1] as const,
       },
     },
   };
@@ -320,7 +320,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+            transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] as const }}
             className="text-center mb-12 sm:mb-16 md:mb-20"
           >
             <motion.h1
